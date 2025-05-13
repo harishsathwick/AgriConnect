@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriConnect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #1b4332;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: #1b4332;
+      border-bottom: 2px solid #1b4332;
+      padding-bottom: 3px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 120px 40px 40px;
+      background-color: #ffffff;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      padding-right: 40px;
+    }
+
+    .hero-text h1 {
+      font-size: 40px;
+      color: #1b4332;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h2 {
+      font-size: 20px;
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    .hero-text p {
+      font-size: 16px;
+      color: #555;
+      max-width: 500px;
+      line-height: 1.5;
+    }
+
+    .hero-text button {
+      margin-top: 25px;
+      padding: 12px 25px;
+      background-color: #1b4332;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hero-text button:hover {
+      background-color: #14422c;
+    }
+
+    .hero img {
+      max-width: 300px;
+      height: auto;
+    
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 20px;
+      background-color: #ffffff;
+    }
+
+    .card {
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 12px;
+      width: 230px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    }
+
+    .card h2 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: #1b4332;
+    }
+
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #1b4332;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #1b4332;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 120px 20px 40px;
+      }
+
+      .hero-text {
+        padding-right: 0;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">AgriConnect</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="crop_guide.html">Crop Guide</a>
+      <a href="market_prices.html">Market Prices</a>
+      <a href="weather.html">Weather</a>
+      <a href="schemes.html">Schemes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>AgriConnect</h1>
+      <h2>A Digital Empowerment Portal for Farmers</h2>
+      <p>
+        Welcome to AgriConnect, your one stop platform for supporting farmers with essential information, resources, and the latest updates to agricultural productivity and stability.
+      </p>
+      <button>Get Started</button>
+    </div>
+    <img src="farmer.png" alt="Farmer Illustration">
+  </section>
+
+  <!-- Cards Section -->
+  <section class="cards">
+    <div class="card">
+      <h2>🌱<br> </h2> <h3>Smart Crop Advisory</h3>
+      <p>Get recommendations on best crops and farming techniques for your region.</p>
+    </div>
+    <div class="card">
+      <h2>📈<br> </h2> <h3>Market Prices</h3>
+      <p>Stay informed with real time market rates for your crops.</p>
+    </div>
+    <div class="card">
+      <h2>☀️<br> </h2> <h3>Weather Forecast</h3>
+      <p>Check the latest weather conditions to plan your farming activities.</p>
+    </div>
+    <div class="card">
+      <h2>🏛️<br> </h2> <h3>Government Schemes</h3>
+      <p>Learn about various government programs and subsidies available for farmers.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 AgriConnect | CSE - SWARNANDHRA | Community Service Project
+  </footer>
+
+</body>
+</html>
