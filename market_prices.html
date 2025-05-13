@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Market Prices - AgriConnect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #1b4332;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: #1b4332;
+      border-bottom: 2px solid #1b4332;
+      padding-bottom: 3px;
+    }
+
+    main {
+      padding: 120px 40px 40px;
+      background-color: #ffffff;
+      min-height: 100vh;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #1b4332;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+
+    th {
+      background-color: #2d6a4f;
+      color: white;
+      padding: 10px;
+      font-size: 15px;
+    }
+
+    td {
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+      border: 1px solid #ccc;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #1b4332;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 10px;
+      }
+
+      main {
+        padding: 120px 20px 40px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">AgriConnect</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="crop_guide.html">Crop Guide</a>
+      <a href="market_prices.html">Market Prices</a>
+      <a href="weather.html">Weather</a>
+      <a href="schemes.html">Schemes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <h2>📈 Market Prices</h2>
+    <p>View recent mandi prices for essential crops across India.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Crop</th>
+          <th>Market Location</th>
+          <th>Min Price (₹/quintal)</th>
+          <th>Max Price (₹/quintal)</th>
+          <th>Modal Price (₹/quintal)</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Paddy</td>
+          <td>Guntur</td>
+          <td>1,650</td>
+          <td>1,850</td>
+          <td>1,750</td>
+          <td>11-May-2025</td>
+        </tr>
+        <tr>
+          <td>Wheat</td>
+          <td>Lucknow</td>
+          <td>1,900</td>
+          <td>2,050</td>
+          <td>1,975</td>
+          <td>11-May-2025</td>
+        </tr>
+        <tr>
+          <td>Maize</td>
+          <td>Eluru</td>
+          <td>1,400</td>
+          <td>1,600</td>
+          <td>1,500</td>
+          <td>11-May-2025</td>
+        </tr>
+        <tr>
+          <td>Groundnut</td>
+          <td>Rajkot</td>
+          <td>4,500</td>
+          <td>5,200</td>
+          <td>4,850</td>
+          <td>11-May-2025</td>
+        </tr>
+        <tr>
+          <td>Soybean</td>
+          <td>Indore</td>
+          <td>3,800</td>
+          <td>4,100</td>
+          <td>3,950</td>
+          <td>11-May-2025</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 AgriConnect | CSE - SWARNANDHRA | Community Service Project
+  </footer>
+
+</body>
+</html>

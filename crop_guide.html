@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Crop Advisory - AgriConnect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #1b4332;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: #1b4332;
+      border-bottom: 2px solid #1b4332;
+      padding-bottom: 3px;
+    }
+
+    main {
+      padding: 120px 40px 40px;
+      background-color: #ffffff;
+      min-height: 100vh;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #1b4332;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section h3 {
+      color: #2d6a4f;
+      margin-bottom: 10px;
+      border-left: 6px solid #2d6a4f;
+      padding-left: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #2d6a4f;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    table tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #1b4332;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 10px;
+      }
+
+      main {
+        padding: 120px 20px 40px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">AgriConnect</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="crop_guide.html">Crop Guide</a>
+      <a href="market_prices.html">Market Prices</a>
+      <a href="weather.html">Weather</a>
+      <a href="schemes.html">Schemes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <h2>🌾 Smart Crop Advisory Guide</h2>
+    <p style="text-align:center; font-size: 16px;">Find the best crops to grow based on season, climate, soil, and region.</p>
+
+    <!-- Kharif -->
+    <div class="section">
+      <h3>Kharif Season (June – October)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Crop</th>
+            <th>Climate</th>
+            <th>Soil Type</th>
+            <th>Duration</th>
+            <th>Popular States</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Paddy (Rice)</td>
+            <td>Humid, Heavy Rain</td>
+            <td>Clayey, Loamy</td>
+            <td>100–150 days</td>
+            <td>West Bengal, Odisha, AP</td>
+          </tr>
+          <tr>
+            <td>Maize</td>
+            <td>Warm, Moderate Rain</td>
+            <td>Well-drained Sandy Loam</td>
+            <td>90–110 days</td>
+            <td>Bihar, Karnataka, MP</td>
+          </tr>
+          <tr>
+            <td>Soybean</td>
+            <td>Warm & Moist</td>
+            <td>Black Cotton Soil</td>
+            <td>80–100 days</td>
+            <td>Maharashtra, MP</td>
+          </tr>
+          <tr>
+            <td>Bajra (Pearl Millet)</td>
+            <td>Dry, Drought-resistant</td>
+            <td>Sandy</td>
+            <td>70–90 days</td>
+            <td>Rajasthan, Gujarat</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Rabi -->
+    <div class="section">
+      <h3>Rabi Season (October – March)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Crop</th>
+            <th>Climate</th>
+            <th>Soil Type</th>
+            <th>Duration</th>
+            <th>Popular States</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Wheat</td>
+            <td>Cool & Dry</td>
+            <td>Loamy, Clay</td>
+            <td>110–140 days</td>
+            <td>Punjab, UP, Haryana</td>
+          </tr>
+          <tr>
+            <td>Mustard</td>
+            <td>Cold & Dry</td>
+            <td>Loamy</td>
+            <td>90–100 days</td>
+            <td>Rajasthan, UP</td>
+          </tr>
+          <tr>
+            <td>Barley</td>
+            <td>Cool Climate</td>
+            <td>Alluvial</td>
+            <td>80–100 days</td>
+            <td>Punjab, MP</td>
+          </tr>
+          <tr>
+            <td>Chickpea (Gram)</td>
+            <td>Cool & Dry</td>
+            <td>Sandy Loam</td>
+            <td>90–100 days</td>
+            <td>MP, Maharashtra</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Zaid -->
+    <div class="section">
+      <h3>Zaid Season (March – June)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Crop</th>
+            <th>Climate</th>
+            <th>Soil Type</th>
+            <th>Duration</th>
+            <th>Popular States</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Watermelon</td>
+            <td>Hot & Dry</td>
+            <td>Sandy Loam</td>
+            <td>60–70 days</td>
+            <td>UP, Maharashtra</td>
+          </tr>
+          <tr>
+            <td>Muskmelon</td>
+            <td>Warm & Dry</td>
+            <td>Light Sandy Soil</td>
+            <td>70–80 days</td>
+            <td>Punjab, Haryana</td>
+          </tr>
+          <tr>
+            <td>Cucumber</td>
+            <td>Warm & Humid</td>
+            <td>Loamy</td>
+            <td>60–70 days</td>
+            <td>Odisha, TN</td>
+          </tr>
+          <tr>
+            <td>Bottle Gourd</td>
+            <td>Hot & Moist</td>
+            <td>Fertile Sandy Soil</td>
+            <td>75–90 days</td>
+            <td>AP, Karnataka</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 AgriConnect | CSE - SWARNANDHRA | Community Service Project
+  </footer>
+
+</body>
+</html>

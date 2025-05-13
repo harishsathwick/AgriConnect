@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather - AgriConnect</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #dbefff, #ffffff);
+      color: #333;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #1b4332;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: #1b4332;
+      border-bottom: 2px solid #1b4332;
+      padding-bottom: 3px;
+    }
+
+    main {
+      padding: 130px 40px 40px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #1b4332;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #2d6a4f;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    button:hover {
+      background-color: #1b4332;
+    }
+
+    .weather-card {
+      margin-top: 40px;
+      background: #ffffff;
+      padding: 30px;
+      width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-left: auto;
+      margin-right: auto;
+      transition: 0.3s ease-in-out;
+    }
+
+    .weather-card img {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+
+    .temp {
+      font-size: 48px;
+      font-weight: bold;
+      color: #1b4332;
+    }
+
+    .weather-details p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+
+    .crop-advice {
+      background: #e8f5e9;
+      margin-top: 20px;
+      padding: 15px;
+      border-left: 5px solid #2d6a4f;
+      border-radius: 10px;
+      color: #2d6a4f;
+      width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    #error {
+      margin-top: 30px;
+      color: red;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #1b4332;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      main { padding: 140px 20px; }
+      nav { flex-wrap: wrap; justify-content: center; }
+      nav a { margin: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">AgriConnect</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="crop_guide.html">Crop Guide</a>
+      <a href="market_prices.html">Market Prices</a>
+      <a href="weather.html">Weather</a>
+      <a href="schemes.html">Schemes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h2>☀️ Live Weather Forecast</h2>
+    <p>Enter your city to get current weather details and suggested crops</p>
+
+    <input type="text" id="cityInput" placeholder="Enter city (e.g. Guntur)" />
+    <button onclick="getWeather()">Check</button>
+
+    <div id="weatherResult" class="weather-card" style="display: none;">
+      <img id="weatherIcon" src="" alt="Weather Icon">
+      <div class="temp" id="temperature"></div>
+      <div class="weather-details">
+        <p><strong>Condition:</strong> <span id="condition"></span></p>
+        <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
+        <p><strong>Wind Speed:</strong> <span id="wind"></span> m/s</p>
+      </div>
+    </div>
+
+    <div id="cropAdvice" class="crop-advice" style="display: none;"></div>
+    <div id="error"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 AgriConnect | CSE - SWARNANDHRA | Community Service Project
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const apiKey = "18cf083300c00fa3ec6f8f6490647695"; // Replace with your OpenWeatherMap API key
+
+    function getWeather() {
+      const city = document.getElementById("cityInput").value.trim();
+      const resultBox = document.getElementById("weatherResult");
+      const errorBox = document.getElementById("error");
+      const cropBox = document.getElementById("cropAdvice");
+
+      if (!city) {
+        errorBox.innerText = "Please enter a city name.";
+        resultBox.style.display = "none";
+        cropBox.style.display = "none";
+        return;
+      }
+
+      errorBox.innerText = "Loading...";
+
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+        .then(res => {
+          if (!res.ok) throw new Error("City not found.");
+          return res.json();
+        })
+        .then(data => {
+          const icon = data.weather[0].icon;
+          const temp = data.main.temp;
+          const condition = data.weather[0].main;
+          const humidity = data.main.humidity;
+          const wind = data.wind.speed;
+
+          document.getElementById("weatherIcon").src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+          document.getElementById("temperature").innerText = `${temp}°C`;
+          document.getElementById("condition").innerText = condition;
+          document.getElementById("humidity").innerText = humidity;
+          document.getElementById("wind").innerText = wind;
+
+          // Crop Suggestion Logic
+          let crops = "Recommended Crops: 🌱 ";
+
+          if (condition.toLowerCase().includes("rain")) {
+            crops += "Rice, Groundnut, Sugarcane";
+          } else if (temp > 30 && humidity < 50) {
+            crops += "Cotton, Bajra, Sorghum";
+          } else if (temp >= 25 && temp <= 30 && humidity > 60) {
+            crops += "Paddy, Maize, Soybean";
+          } else if (temp >= 15 && temp < 25 && humidity < 50) {
+            crops += "Wheat, Mustard, Chickpea";
+          } else {
+            crops += "Tomato, Brinjal, Onion";
+          }
+
+          cropBox.innerText = crops;
+
+          resultBox.style.display = "block";
+          cropBox.style.display = "block";
+          errorBox.innerText = "";
+        })
+        .catch(err => {
+          resultBox.style.display = "none";
+          cropBox.style.display = "none";
+          errorBox.innerText = err.message;
+        });
+    }
+  </script>
+
+</body>
+</html>
